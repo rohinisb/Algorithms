@@ -6,6 +6,8 @@ import sun.reflect.generics.tree.Tree;
  * Created by rohin on 5/25/2016.
  */
 public class TreeNode {
+
+    //define structure of a Tree
     int data;
     TreeNode right;
     TreeNode left;
@@ -24,6 +26,7 @@ public class TreeNode {
         System.out.println(getHeight(tree));
     }
 
+    //get height of a binary tree
     private static int getHeight(TreeNode tree){
         if(tree == null)
             return 0;
