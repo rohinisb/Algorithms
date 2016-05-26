@@ -17,19 +17,31 @@ public class TreeNode {
     }
 
     public static void main(String args[]){
-        TreeNode tree = new TreeNode(1);
-        tree.left = new TreeNode(2);
-        tree.right = new TreeNode(4);
-        tree.left.left = new TreeNode(3);
-        tree.left.left.left = new TreeNode(5);
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(4);
+        root.left.left = new TreeNode(3);
+        root.left.left.left = new TreeNode(5);
 
-        System.out.println(getHeight(tree));
+        System.out.println(getHeight(root));
     }
 
     //get height of a binary tree
-    private static int getHeight(TreeNode tree){
-        if(tree == null)
+    private static int getHeight(TreeNode root){
+        if(root == null)
             return 0;
-        return 1 + Math.max(getHeight(tree.right), getHeight(tree.left));
+        return 1 + Math.max(getHeight(root.right), getHeight(root.left));
+    }
+
+    //invert a binary tree
+    private static TreeNode invertTree(TreeNode root){
+        if(root == null){
+            return null;
+        }
+        TreeNode right = root.right;
+        TreeNode left = root.left;
+        root.right = left;
+        root.left = right;
+        return root;
     }
 }
