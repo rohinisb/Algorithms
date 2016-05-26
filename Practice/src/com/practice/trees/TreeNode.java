@@ -21,9 +21,12 @@ public class TreeNode {
         root.left = new TreeNode(2);
         root.right = new TreeNode(4);
         root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(6);
         root.left.left.left = new TreeNode(5);
 
+        printTree(root);
         System.out.println(getHeight(root));
+        printTree(invertTree(root));
     }
 
     //get height of a binary tree
@@ -43,5 +46,13 @@ public class TreeNode {
         root.right = left;
         root.left = right;
         return root;
+    }
+
+    private static void printTree(TreeNode root){
+        if(root != null){
+            printTree(root.left);
+            System.out.println(root.data);
+            printTree(root.right);
+        }
     }
 }
